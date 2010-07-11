@@ -12,9 +12,8 @@
 ActiveRecord::Schema.define(:version => 1) do
 
   create_table "picture", :force => true do |t|
-    t.string "name",              :null => false
+    t.string "name", :null => false
     t.string "tag"
-    t.string "ext",  :limit => 5
   end
 
 end

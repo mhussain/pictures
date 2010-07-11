@@ -8,6 +8,6 @@ When /^I set its name as "([^\"]*)"$/ do |name|
   @picture.set_name(name)
 end
 
-Then /^I can see its ext as "([^\"]*)"$/ do |ext|
-  @picture.ext.should == ext
+Then /^I should see it its name as "([^\"]*)"$/ do |expected_name|
+  @picture.name.should == expected_name
 end

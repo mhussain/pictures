@@ -4,7 +4,7 @@ Feature: Checking whether we have a picture or not.
 Scenario: Making sure we can get the extension form the names.
   Given I have a picture
   When I set its name as "abc.png"
-  Then I can see its ext as "png"
+  Then I should see it its name as "abc.png"
 
 
 @in_progress
