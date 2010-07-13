@@ -5,12 +5,12 @@ Given /^I have a picture called "([^\"]*)"$/ do |name|
   picture.save
 end
 
-When /^I search for a picture with name "([^\"]*)"$/ do |name|
-  @count = Picture.count(:conditions => {:name => name})
-  @picture = Picture.find(:first, :conditions => {:name => name})
+When /^I search for a picture with "([^\"]*)" "([^\"]*)"$/ do |field, value|
+  @count = Picture.count(:conditions => {field.to_sym => value})
+  @picture = Picture.find(:first, :conditions => {field.to_sym => value})
 end
 
-Then /^I should see get "([^\"]*)" picture with name "([^\"]*)"$/ do |count, name|
+Then /^I should get "([^\"]*)" picture with the name "([^\"]*)"$/ do |count, name|
   @count.should == count.to_i
   @picture.name.should == name
 end
