@@ -2,9 +2,9 @@ Feature: Checking whether we have a picture or not.
 
 @sample_test
 Scenario: Making sure we can get the extension form the names.
-  Given I have a picture
-  When I set its name as "abc.png"
-  Then I should see it its name as "abc.png"
+  Given I have a picture called "abc.png"
+  When I search for a picture with name "abc.png"
+  Then I should see get "1" picture with name "abc.png"
 
 
 @in_progress

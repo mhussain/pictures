@@ -1,13 +1,16 @@
 require File.dirname(__FILE__) + '/../../app/models/picture'
 
-Given /^I have a picture$/ do
-  @picture = Picture.new
+Given /^I have a picture called "([^\"]*)"$/ do |name|
+  picture = Picture.create({:name => name})
+  picture.save
 end
 
-When /^I set its name as "([^\"]*)"$/ do |name|
-  @picture.set_name(name)
+When /^I search for a picture with name "([^\"]*)"$/ do |name|
+  @count = Picture.count(:conditions => {:name => name})
+  @picture = Picture.find(:first, :conditions => {:name => name})
 end
 
-Then /^I should see it its name as "([^\"]*)"$/ do |expected_name|
-  @picture.name.should == expected_name
+Then /^I should see get "([^\"]*)" picture with name "([^\"]*)"$/ do |count, name|
+  @count.should == count.to_i
+  @picture.name.should == name
 end
