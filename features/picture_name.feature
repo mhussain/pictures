@@ -1,5 +1,8 @@
 Feature: Checking whether we have a picture or not.
 
+Background:
+  Given I have no pictures
+
 @sample_test
 Scenario: Making sure we can get the extension form the names.
   Given I have a picture called "abc.png"
